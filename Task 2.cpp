@@ -5,19 +5,16 @@ int main() {
   char myArray[100];
   strcpy(myArray, "Hello");
 
-  printf("Start: %s\n", myArray);
-
-  int index;
-  printf("Vvedite simbol kotoriy udalit: ");
-  scanf("%d", &index);
-
   int length = strlen(myArray);
+  char lastElement = myArray[length - 1];
 
-  for (int i = index; i < length; i++) {
-    myArray[i] = myArray[i + 1];
-  }
+  printf("Posledniy element: %c\n", lastElement);
 
-  printf("Reg massiv: %s\n", myArray);
+  char temp = myArray[0];
+  myArray[0] = lastElement;
+  myArray[length - 1] = temp;
+
+  printf("Reg massiv: %s\n", myArray); 
 
   return 0;
 }
